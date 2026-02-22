@@ -2,10 +2,10 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class java_program9 extends Frame implements KeyListener {
-    Label l = new Label();
+    Label lb = new Label();
 
     java_program9() {
-        add(l);
+        add(lb);
         addKeyListener(this);
         setSize(300, 200);
         setLayout(new FlowLayout()); // Simpler than setBounds
@@ -14,10 +14,10 @@ public class java_program9 extends Frame implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         char c = Character.toLowerCase(e.getKeyChar());
-        if (c == 'm') l.setText("Good morning");
-        else if (c == 'a') l.setText("Good afternoon");
-        else if (c == 'e') l.setText("Good evening");
-        else if (c == 'n') l.setText("Good night");
+        if (c == 'm') lb.setText("Good morning");
+        else if (c == 'a') lb.setText("Good afternoon");
+        else if (c == 'e') lb.setText("Good evening");
+        else if (c == 'n') lb.setText("Good night");
     }
 
     public void keyReleased(KeyEvent e) {}
