@@ -1,0 +1,34 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class java_program8 extends JFrame implements KeyListener {
+    String msg = "";
+
+    java_program8() {
+        addKeyListener(this);
+        setSize(600, 200);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g); // Clears previous frame
+        g.drawString(msg, 150, 100);
+    }
+
+    public void keyPressed(KeyEvent e) {
+        setTitle(KeyEvent.getKeyText(e.getKeyCode()) + " Pressed");
+    }
+
+    public void keyReleased(KeyEvent e) {
+        setTitle(KeyEvent.getKeyText(e.getKeyCode()) + " Released");
+    }
+
+    public void keyTyped(KeyEvent e) {
+        msg += e.getKeyChar();
+        repaint();
+    }
+
+    public static void main(String[] args) { new java_program8(); }
+}
