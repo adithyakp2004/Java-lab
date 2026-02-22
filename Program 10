@@ -5,9 +5,11 @@ class QueueEx extends Exception {
     QueueEx(String msg) { super(msg); }
 }
 
-class Queue {
-    int q[] = new int[3], f = 0, r = 0;
-
+class Queue{
+ int q[],f = 0, r = 0;
+    Queue(int n){
+      q[] = new int[n];
+    }
     void insert(int val) throws QueueEx {
         if (r == 3) throw new QueueEx("Queue Full");
         q[r++] = val;
@@ -21,14 +23,30 @@ class Queue {
 
 public class ProgramQ {
     public static void main(String[] args) {
-        Queue obj = new Queue();
+        int ch,op;
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter queue size:");
+        int size=sc.nextInt(System.in);
+        Queue obj = new Queue(size);
+        System.out.println("Queue Operations:/n 1.insert 2.delete 3. exit");
+        ch=sc.nextInt(System.in);
         try {
-            obj.insert(10);
-            obj.insert(20);
-            obj.delete();
-            obj.delete();
-            obj.delete(); // This will throw exception
-        } catch (QueueEx e) { System.out.println(e.getMessage()); }
+         while(ch=!3)
+         {
+         if(ch==1)
+          {
+            System.out.println("Enter element to insert:");
+            op=sc.nextInt(System.in);
+            obj.insert(op);
+          }
+         else if(ch==2)
+          {
+            obj.delete(op);
+          }
+        else System.exit();
+        }
+      }
+catch (QueueEx e) { System.out.println(e.getMessage()); }
     }
 }
 
