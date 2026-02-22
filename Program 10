@@ -1,17 +1,22 @@
 // Part 1: Queue with Exception Handling in ProgramQ
 import java.util.Scanner;
 
+// Custom Exception class
 class QueueEx extends Exception {
-    QueueEx(String msg) { super(msg); }
+    QueueEx(String msg) {
+        super(msg);
+    }
 }
 
-class Queue{
- int q[],f = 0, r = 0;
-    Queue(int n){
-      q[] = new int[n];
+class Queue {
+    int q[], f = 0, r = 0;
+    
+    Queue(int n) {
+        q = new int[n]; 
     }
+
     void insert(int val) throws QueueEx {
-        if (r == 3) throw new QueueEx("Queue Full");
+        if (r == q.length) throw new QueueEx("Queue Full"); 
         q[r++] = val;
     }
 
@@ -23,32 +28,36 @@ class Queue{
 
 public class ProgramQ {
     public static void main(String[] args) {
-        int ch,op;
-        Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter queue size:");
-        int size=sc.nextInt(System.in);
+        int size = sc.nextInt();
         Queue obj = new Queue(size);
-        System.out.println("Queue Operations:/n 1.insert 2.delete 3. exit");
-        ch=sc.nextInt(System.in);
-        try {
-         while(ch=!3)
-         {
-         if(ch==1)
-          {
-            System.out.println("Enter element to insert:");
-            op=sc.nextInt(System.in);
-            obj.insert(op);
-          }
-         else if(ch==2)
-          {
-            obj.delete(op);
-          }
-        else System.exit();
+        int ch = 0, op;
+
+        while (true) {
+            System.out.println("\n1.Insert 2.Delete 3.Exit");
+            System.out.println("Enter choice:");
+            ch = sc.nextInt();
+            
+            if (ch == 3) break;
+
+            try {
+                if (ch == 1) {
+                    System.out.println("Enter element to insert:");
+                    op = sc.nextInt();
+                    obj.insert(op);
+                } else if (ch == 2) {
+                    obj.delete();
+                } else {
+                    System.out.println("Invalid Choice");
+                }
+            } catch (QueueEx e) {
+                System.out.println("Error: " + e.getMessage());
+            }
         }
-      }
-catch (QueueEx e) { System.out.println(e.getMessage()); }
     }
 }
+
 
 // Part 2: Shape Package and Implementation
 // File 1: Shapes.java
