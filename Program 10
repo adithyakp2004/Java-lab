@@ -1,0 +1,60 @@
+// Part 1: Queue with Exception Handling in ProgramQ
+import java.util.Scanner;
+
+class QueueEx extends Exception {
+    QueueEx(String msg) { super(msg); }
+}
+
+class Queue {
+    int q[] = new int[3], f = 0, r = 0;
+
+    void insert(int val) throws QueueEx {
+        if (r == 3) throw new QueueEx("Queue Full");
+        q[r++] = val;
+    }
+
+    void delete() throws QueueEx {
+        if (f == r) throw new QueueEx("Queue Empty");
+        System.out.println("Deleted: " + q[f++]);
+    }
+}
+
+public class ProgramQ {
+    public static void main(String[] args) {
+        Queue obj = new Queue();
+        try {
+            obj.insert(10);
+            obj.insert(20);
+            obj.delete();
+            obj.delete();
+            obj.delete(); // This will throw exception
+        } catch (QueueEx e) { System.out.println(e.getMessage()); }
+    }
+}
+
+// Part 2: Shape Package and Implementation
+// File 1: Shapes.java
+package shape;
+
+public class Shapes {
+    public void triangle(int b, int h) { 
+        System.out.println("Triangle Area: " + (0.5 * b * h)); 
+    }
+    public void rectangle(int l, int b) { 
+        System.out.println("Rectangle Area: " + (l * b)); 
+    }
+}
+
+// File 2: TestShape.java
+import shape.Shapes;
+
+public class TestShape {
+    public static void main(String[] args) {
+        Shapes s = new Shapes();
+        s.triangle(10, 5);
+        s.rectangle(10, 5);
+    }
+}
+
+
+
