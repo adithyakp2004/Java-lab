@@ -9,7 +9,6 @@ public class java_program8 extends JFrame implements KeyListener {
         addKeyListener(this);
         setSize(600, 200);
         setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     public void paint(Graphics g) {
