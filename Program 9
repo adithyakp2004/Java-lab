@@ -1,0 +1,27 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class java_program9 extends Frame implements KeyListener {
+    Label l = new Label();
+
+    java_program9() {
+        add(l);
+        addKeyListener(this);
+        setSize(300, 200);
+        setLayout(new FlowLayout()); // Simpler than setBounds
+        setVisible(true);
+    }
+
+    public void keyPressed(KeyEvent e) {
+        char c = Character.toLowerCase(e.getKeyChar());
+        if (c == 'm') l.setText("Good morning");
+        else if (c == 'a') l.setText("Good afternoon");
+        else if (c == 'e') l.setText("Good evening");
+        else if (c == 'n') l.setText("Good night");
+    }
+
+    public void keyReleased(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {}
+
+    public static void main(String[] args) { new java_program9(); }
+}
