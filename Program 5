@@ -1,0 +1,25 @@
+class OuterClass {
+ private int privateVar = 10;
+ protected int protectedVar = 20;
+ public int publicVar = 30;
+ // Inner class
+ class InnerClass {
+ void display() {
+ 
+ // Inner class can access all members of outer class
+ System.out.println("Private Variable = " + privateVar);
+ System.out.println("Protected Variable = " + protectedVar);
+ System.out.println("Public Variable = " + publicVar);
+ }
+ }
+void createInner() {
+ InnerClass obj = new InnerClass();
+ obj.display();
+ }
+}
+class InnerClassDemo {
+ public static void main(String[] args) {
+ OuterClass outer = new OuterClass();
+ outer.createInner();
+ }
+}
