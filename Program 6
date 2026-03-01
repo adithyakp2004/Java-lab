@@ -1,0 +1,23 @@
+class Overload {
+    Overload() { 
+    System.out.println("No Args"); 
+    }
+    Overload(int x) { 
+    System.out.println("Arg: " + x); 
+    }
+    void show(int a) { 
+    System.out.println(a);
+    }
+    void show(int a, int b) { 
+    System.out.println(a + " " + b);
+    }
+
+    public static void main(String[] args) {
+        new Overload();       
+        new Overload(10);      
+        
+        Overload obj = new Overload();
+        obj.show(5);           
+        obj.show(5, 20);       
+    }
+}
