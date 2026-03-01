@@ -1,0 +1,43 @@
+//part 1 - area and circumference of circle 
+import java.util.Scanner;
+
+public class Circle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Radius: ");
+        double r = sc.nextDouble();
+
+        System.out.println("Area: " + (3.14 * r * r));
+        System.out.println("Circumference: " + (2 * 3.14 * r));
+    }
+}
+
+part 2 - Checking Prime number 
+import java.util.Scanner;
+
+public class PrimeCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Number: ");
+        int n = sc.nextInt();
+
+        boolean isPrime = true; // Set to true at first
+
+        if (n <= 1) {
+            isPrime = false; // 0 and 1 are not prime
+        } else {
+            for (int i = 2; i < n; i++) {
+                if (n % i == 0) {
+                    isPrime = false; // Change to false if a factor is found
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println("Prime Number");
+        } else {
+            System.out.println("Not Prime");
+        }
+    }
+}
