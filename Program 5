@@ -2,7 +2,7 @@ class OuterClass {
  private int privateVar = 10;
  protected int protectedVar = 20;
  public int publicVar = 30;
- // Inner class
+
  class InnerClass {
  void display() {
  
@@ -19,7 +19,7 @@ void createInner() {
 }
 class InnerClassDemo {
  public static void main(String[] args) {
- OuterClass outer = new OuterClass();
- outer.createInner();
+ OuterClass obj = new OuterClass();
+ obj.createInner();
  }
 }
